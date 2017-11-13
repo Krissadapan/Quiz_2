@@ -34,6 +34,20 @@ function search(req, res) {
     });
 };
 
+function searchHome(req, res) {
+    var Home = req.query.Home;
+    MongoClient.connect(url, function (err, db) {
+      if (err) throw err;
+      var query = { Home:Home};
+      db.collection("users").find(query).toArray(function (err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+        res.json(result);
+      });
+    });
+};
+
 
 function role(req, res) {
     var role = req.params.role;
@@ -54,5 +68,6 @@ function role(req, res) {
 module.exports = {
         findAll: findAll,
         search: search,
+        searchHome: searchHome,
         role: role
     };

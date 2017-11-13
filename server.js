@@ -18,6 +18,7 @@ app.use(express.static('www'))
 app.get('/users',user.findAll);
 app.get('/users/search',user.search);
 app.get('/users/role/:role',user.role);
+app.get('/users/searchhome',user.searchHome);
 
 
 app.get('/now',function(request, response){
