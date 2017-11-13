@@ -57,9 +57,11 @@ MongoClient.connect(url, function(err, db) {
     ]},
 
 ];
+
   db.collection("users").insertMany(myobj, function(err, res) {
     if (err) throw err;
     console.log("Number of documents inserted: " + res.insertedCount);
     db.close();
   });
+  
 });

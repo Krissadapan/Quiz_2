@@ -10,12 +10,11 @@ MongoClient.connect(url, function(err, database) {
 
 
 function findAll(req, res){
-    //get data from mongoDB
         var query = {};
         db.collection("users").find(query).toArray(function(err, result) {
           if (err) throw err;
           console.log(result);
-          res.json(result);  //send to browser
+          res.json(result);  
         });
 }
 
